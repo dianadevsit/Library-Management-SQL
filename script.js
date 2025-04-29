@@ -288,34 +288,37 @@ document.getElementById('run-sql').addEventListener('click', function() {
         document.getElementById('run-sql').disabled = true;
         showRestartButton();
         // --- Mini Book Hints ---
-const miniBooks = [
-  { title: "WHERE", content: "Use WHERE to filter your data. Example: SELECT * FROM Loans WHERE borrower_id = 5;" },
-  { title: "ORDER BY", content: "ORDER BY helps sort results. ASC means ascending, DESC means descending." },
-  { title: "ASC", content: "ASC is used to sort values from smallest to largest (or A to Z)." },
-  { title: "DESC", content: "DESC is used to sort values from largest to smallest (or Z to A)." }
-];
-
-function revealMiniBooksOneAtATime() {
-  const container = document.getElementById("mini-book-buttons");
-  if (!container) return;
-
-  let i = 0;
-  function showNextBook() {
-    if (i >= miniBooks.length) return;
-
-    const btn = document.createElement("button");
-    btn.textContent = miniBooks[i].title;
-    btn.classList.add("mini-book-btn");
-    btn.onclick = () => {
-      document.getElementById("mini-book-info").innerText = miniBooks[i].content;
-    };
-    container.appendChild(btn);
-    i++;
-    setTimeout(showNextBook, 1200);
-  }
-
-  showNextBook();
-}
+        const miniBooks = [
+          { title: "WHERE", content: "Use WHERE to filter your data. Example: SELECT * FROM Loans WHERE borrower_id = 5;" },
+          { title: "ORDER BY", content: "ORDER BY helps sort results. ASC means ascending, DESC means descending." },
+          { title: "ASC", content: "ASC sorts from smallest to largest or A to Z." },
+          { title: "DESC", content: "DESC sorts from largest to smallest or Z to A." }
+        ];
+        
+        function revealMiniBooksOneAtATime() {
+          const container = document.getElementById("mini-book-buttons");
+          const infoBox = document.getElementById("mini-book-info");
+          container.innerHTML = ""; // reset buttons
+          infoBox.innerText = "";   // clear old content
+        
+          let i = 0;
+          function showNextBook() {
+            if (i >= miniBooks.length) return;
+        
+            const btn = document.createElement("button");
+            btn.textContent = miniBooks[i].title;
+            btn.addEventListener("click", () => {
+              infoBox.innerText = miniBooks[i].content;
+            });
+        
+            container.appendChild(btn);
+            i++;
+            setTimeout(showNextBook, 1000); // delay per book
+          }
+        
+          showNextBook();
+        }
+        
       } else {
         updateDialogue(missionQueue[missionIndex].prompt);
       }
