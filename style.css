@@ -1,0 +1,281 @@
+/* --- General Styling --- */
+body {
+    background-color: #f4f1e6;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.game-container {
+    width: 80%;
+    margin: auto;
+}
+
+/* --- Main Characters --- */
+#book-character img,
+#chalkboard img {
+    width: 150px;
+    height: auto;
+    animation: fadeIn 1s ease forwards;
+}
+
+#book-character {
+    margin-bottom: 10px;
+}
+
+#chalkboard {
+    display: none;
+    margin-left: 20px;
+}
+
+#chalkboard-img {
+    cursor: pointer;
+}
+
+/* --- Dialogue and Input Boxes --- */
+#dialogue-box, 
+#player-name-box, 
+#welcome-message {
+    background-color: #fff9e6;
+    border: 2px solid #d4b483;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px auto 0 auto;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    width: 60%;
+}
+
+/* --- SQL Editor --- */
+#sql-editor {
+    background-color: #fff9e6;
+    border: 2px solid #d4b483;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px auto 0 auto;
+    width: 60%;
+}
+
+#sql-input {
+    width: 90%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #d4b483;
+    margin-bottom: 10px;
+}
+
+#run-sql {
+    padding: 8px 15px;
+    background-color: #d4b483;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#sql-output {
+    background-color: #f0f0f0;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 10px;
+    text-align: left;
+    white-space: pre-wrap;
+}
+
+/* --- Table Popup --- */
+#table-columns-output {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.popup-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.popup-table th, .popup-table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+
+#table-list {
+    list-style: none;
+    padding: 0;
+}
+
+#table-list li {
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.table-button {
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: #5c3d00;
+    cursor: pointer;
+}
+
+.table-button:hover {
+    text-decoration: underline;
+    color: #8b5c00;
+}
+
+#close-popup {
+    margin-top: 20px;
+    padding: 8px 15px;
+    font-size: 16px;
+    background-color: #d4b483;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* --- Table Appearance --- */
+.output-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.output-table th, .output-table td {
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    text-align: center;
+}
+
+.output-table th {
+    background-color: #d4b483;
+    color: #5c3d00;
+}
+
+/* --- Mini SQL Helpers (Mini Books) --- */
+#sql-helpers {
+    display: none;
+    margin-top: 30px;
+}
+
+.sql-helper {
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+    animation: popIn 0.5s ease;
+}
+
+.sql-helper img {
+    width: 60px;
+    height: auto;
+    margin-bottom: 5px;
+}
+
+.sql-helper p {
+    font-size: 16px;
+    color: #555;
+    margin-top: 5px;
+}
+
+/* --- Animations --- */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes popIn {
+    0% {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+}
+
+/* --- Hints Area --- */
+#hints-area {
+    margin-top: 20px;
+    display: none;
+    font-style: italic;
+    color: #333;
+}
+
+#hints-area p {
+    margin: 5px 0;
+}
+
+/* --- Button General --- */
+button {
+    font-family: inherit;
+    font-size: 16px;
+    background-color: #d4b483;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #c2a370;
+}
+
+#main-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+#book-img {
+    width: 120px;
+}
+
+#chalkboard-img {
+    width: 250px;
+}
+
+#dialogue-text span {
+    font-weight: bold;
+}
+
+#mini-book-area {
+    position: absolute;
+    right: 2rem;
+    top: 180px;
+    width: 230px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  #mini-book-buttons button {
+    margin-bottom: 5px;
+    background-color: #f3dfc1;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  #mini-book-info {
+    background: #fffdf5;
+    border: 1px solid #d3c5b2;
+    padding: 10px;
+    border-radius: 6px;
+    max-height: 120px;
+    overflow-y: auto;
+    font-size: 0.9em;
+    line-height: 1.4;
+  }
+  
+  .scroll-box::-webkit-scrollbar {
+    width: 6px;
+  }
+  .scroll-box::-webkit-scrollbar-thumb {
+    background-color: #c7b49c;
+    border-radius: 5px;
+  }
+  

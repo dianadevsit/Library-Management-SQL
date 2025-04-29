@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Library SQL Adventure</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+
+        <div id="main-area">
+            <div id="book-character">
+                <img src="assets/book-teacher.png" alt="Tiny Book Character" id="book-img">
+            </div>
+            <div id="chalkboard" style="display: none;">
+                <img src="assets/chalkboard.png" alt="Chalkboard" id="chalkboard-img">
+            </div>
+            <div id="mini-book-area">
+                <div id="mini-book-buttons"></div>
+                <div id="mini-book-info" class="scroll-box"></div>
+              </div>              
+              
+            <div id="table-popup" style="display: none;">
+              <div class="popup-content">
+                  <h2>📚 Database Tables</h2>
+                  <ul id="table-list">
+                      <li><button class="table-button" data-table="Books">Books</button></li>
+                      <li><button class="table-button" data-table="Authors">Authors</button></li>
+                      <li><button class="table-button" data-table="Borrowers">Borrowers</button></li>
+                      <li><button class="table-button" data-table="Loans">Loans</button></li>
+                  </ul>
+          
+                  <div id="table-columns-output" style="margin-top: 20px;"></div>
+          
+                  <button id="close-popup">Close</button>
+              </div>
+          </div>
+          
+        </div>
+
+        <div id="dialogue-box">
+            <p id="dialogue-text">Hi there! Most people call me 'Page', 'Script', or sometimes even 'Query' — want to rename me?</p>
+            <input type="text" id="book-name-input" placeholder="Query">
+            <button id="save-book-name">Save Name</button>
+        </div>
+
+        <div id="player-name-box" style="display: none;">
+            <p>What’s your name, friend?</p>
+            <input type="text" id="player-name-input" placeholder="Your name here">
+            <button id="save-player-name">Save Name</button>
+        </div>
+
+        <div id="welcome-message" style="display: none;">
+            <p id="welcome-text"></p>
+            <button id="start-lesson">Start Learning!</button>
+        </div>
+
+        <div id="sql-editor" style="display: none;">
+            <h2>💻 SQL Practice Editor</h2>
+            <textarea id="sql-input" placeholder="Write your SQL here..." rows="6" cols="50"></textarea><br>
+            <button id="run-sql">Run Code</button>
+            <pre id="sql-output"></pre>
+        </div>
+
+        <div id="sql-helpers" style="display: none;">
+            <div class="sql-helper" id="helper-where" style="display: none;">
+                <img src="assets/green-book.png" alt="Where Helper">
+                <p>Use <code>WHERE</code> to filter your results!</p>
+            </div>
+            <div class="sql-helper" id="helper-orderby" style="display: none;">
+                <img src="assets/orange-book.png" alt="Order By Helper">
+                <p>Use <code>ORDER BY</code> to sort your results!</p>
+            </div>
+            <div class="sql-helper" id="helper-asc" style="display: none;">
+                <img src="assets/purple-book.png" alt="Asc Helper">
+                <p><code>ASC</code> means ascending order (A-Z, 1-9)!</p>
+            </div>
+            <div class="sql-helper" id="helper-desc" style="display: none;">
+                <img src="assets/yellow-book.png" alt="Desc Helper">
+                <p><code>DESC</code> means descending order (Z-A, 9-1)!</p>
+            </div>
+        </div>
+
+        <div id="hints-area" style="margin-top: 20px; display: none;">
+          <p id="chalkbyte-hint"></p>
+          <p id="book-hint"></p>
+      </div>
+      
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
