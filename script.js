@@ -64,6 +64,19 @@ function randomBookTip() {
   document.getElementById('dialogue-text').innerHTML += `<br><span style="color: blue;">${bookName}:</span> ${tip}`;
 }
 
+let tipIntervalId = null;
+
+function startBookTipLoop() {
+  if (tipIntervalId) return; // already running
+
+  tipIntervalId = setInterval(() => {
+    if (document.getElementById('sql-editor').style.display !== 'none') {
+      randomBookTip();
+    }
+  }, 20000); // every 20 seconds
+}
+
+
 // --- Mini Book Logic ---
 function revealMiniBooksOneAtATime() {
   const container = document.getElementById("mini-book-buttons");
@@ -274,11 +287,12 @@ document.getElementById('start-lesson').addEventListener('click', function () {
       currentLesson = 1;
       updateDialogue(fixedMissions[0].prompt);
       document.getElementById('sql-editor').style.display = "block";
+startBookTipLoop(); // ✅ Start loop here
       document.getElementById('table-popup').style.display = "none";
       document.getElementById('mini-book-area').style.display = "none";
       firstClickOnProfessor = false;
-      randomBookTip();
     } else {
+
       showPopupTables();
     }
   });  
